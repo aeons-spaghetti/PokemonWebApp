@@ -10,4 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CsvLoader {
+    private int totalLines = 0;
+    private int skippedLines = 0;
+    private final List<String> skippedLineDetails = new ArrayList<>();
+
 }
