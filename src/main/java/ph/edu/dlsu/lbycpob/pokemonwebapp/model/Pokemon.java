@@ -40,5 +40,27 @@ public class Pokemon extends AbstractPokemon {
             default -> "linear-gradient(to bottom, #F0F0F0, #D0D0D0)";
         };
     }
+    public String getSecondBackground() {
+        String[] types = type.split("-");
+        if (types.length < 2) {
+            return "linear-gradient(to bottom, #F0F0F0, #D0D0D0)";
+        }
+        return getTypeBackground(types[1].toUpperCase());
+    }
+    public boolean isDualType() {
+        return type.contains("-");
+    }
+
+    public String getFirstType() {
+        return type.split("-")[0];
+    }
+    public String getSecondType() {
+        String[] types = type.split("-");
+        return types.length > 1 ? types[1] : "";
+    }
+    /** Web-relative image filename, e.g. "squirtle.gif" - used by Thymeleaf to build the <img> src. */
+    public String getImageFileName() {
+        return name.toLowerCase() + ".gif";
+    }
 
 }
