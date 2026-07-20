@@ -129,5 +129,13 @@ public class CsvLoader {
             return false;
         }
     }
+    public int getTotalLines() { return totalLines; }
+    public int getSkippedLines() { return skippedLines; }
+    public int getValidLines() { return totalLines - skippedLines; }
+    public List<String> getSkippedLineDetails() { return new ArrayList<>(skippedLineDetails); }
 
+    public String getLoadingSummary() {
+        return String.format("Loaded %d valid lines, skipped %d malformed lines out of %d total lines",
+                getValidLines(), skippedLines, totalLines);
+    }
 }
